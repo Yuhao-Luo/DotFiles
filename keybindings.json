@@ -1,0 +1,697 @@
+	// place your key bindings in this file to override the defaults
+[
+	{ // make cursor back to editor
+		"key": "ctrl+shift+c",
+		"command": "workbench.action.focusactiveeditorgroup",
+		"when": "!terminalfocus"
+	},
+	{ // make cursor back to editor
+		"key": "ctrl+k",
+		"command": "workbench.action.focusactiveeditorgroup",
+		"when": "panelfocus && activepanel"
+	},
+	{ // make cursor back to editor
+		"key": "ctrl+h",
+		"command": "workbench.action.focusactiveeditorgroup",
+		"when": "panelfocus && activepanel"
+	},
+	{ // window move down
+		"key": "ctrl+j",
+		"command": "vim.remap",
+		"when": "vim.mode == 'normal' && !suggestwidgetvisible && !inquickopen",
+		"args": {
+			"after": [
+				"<c-w>",
+				"j"
+			],
+		}
+	},
+	{ // window move up
+		"key": "ctrl+k",
+		"command": "vim.remap",
+		"when": "vim.mode == 'normal' && !suggestwidgetvisible && !inquickopen && !panelfocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"k"
+			],
+		}
+	},
+	{ // window move left
+		"key": "ctrl+h",
+		"command": "vim.remap",
+		"when": "vim.mode == 'normal' && !suggestwidgetvisible && !inquickopen && !panelfocus",
+		"args": {
+			"after": [
+				"<c-w>",
+				"h"
+			],
+		}
+	},
+	{ // window move right
+		"key": "ctrl+l",
+		"command": "vim.remap",
+		"when": "vim.mode == 'normal' && !suggestwidgetvisible && !inquickopen",
+		"args": {
+			"after": [
+				"<c-w>",
+				"l"
+			],
+		}
+	},
+	// -----searching pane start------
+	{ // focus on searching result
+		"key": "tab",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"search.action.focussearchlist"
+			]
+		},
+		"when": "searchviewletfocus"
+	},
+	{ // focus on search input box
+		"key": "shift+tab",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"search.focus.previousinputbox",
+				"search.focus.previousinputbox",
+				"search.focus.previousinputbox",
+				"search.focus.previousinputbox",
+			]
+		},
+		"when": "hassearchresult && searchviewletfocus"
+	},
+	{
+		"key": "o",
+		"command": "list.select",
+		"when": "listfocus && !inputfocus && hassearchresult && searchviewletfocus"
+	},
+	{
+		"key": "enter",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"list.select",
+				"workbench.action.toggleauxiliarybar",
+			]
+		},
+		"when": "listfocus && !inputfocus && hassearchresult && searchviewletfocus"
+	},
+	// -----searching pane end------
+	// -----file explorer start------
+	{ // open file explorer use which key
+		"key": "e",
+		"command": "whichkey.triggerkey",
+		"when": "whichkeyvisible && sidebarvisible && explorerviewletvisible",
+		"args": {
+			"key": "e",
+			"when": "sidebarvisible && explorerviewletvisible"
+		},
+	},
+	{ // rename file
+		"key": "r",
+		"command": "renamefile",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourceisroot && !explorerresourcereadonly && !inputfocus"
+	},
+	{ // disable old style rename shortcut
+		"key": "enter",
+		"command": "-renamefile",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourceisroot && !explorerresourcereadonly && !inputfocus"
+	},
+	{ // move down
+		"key": "j",
+		"command": "list.focusdown",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourceisroot && !explorerresourcereadonly && !inputfocus"
+	},
+	{ // move up
+		"key": "k",
+		"command": "list.focusup",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourceisroot && !explorerresourcereadonly && !inputfocus"
+	},
+	// -----file explorer end------
+	// -----suggest item start------
+	{ // move down at auto completion prompt
+		"key": "ctrl+j",
+		"command": "selectnextsuggestion",
+		"when": "editortextfocus && suggestwidgetmultiplesuggestions && suggestwidgetvisible"
+	},
+	{ // move up at auto completion prompt
+		"key": "ctrl+k",
+		"command": "selectprevsuggestion",
+		"when": "editortextfocus && suggestwidgetmultiplesuggestions && suggestwidgetvisible"
+	},
+	{ // move up at quick open
+		"key": "ctrl+k",
+		"command": "workbench.action.quickopennavigateprevious",
+		"when": "inquickopen"
+	},
+	{ // move down at problem open
+		"key": "ctrl+shift+j",
+		"command": "list.focusdown",
+		"when": "panelfocus && activepanel == 'workbench.panel.markers' "
+	},
+	{ // move up at problem open
+		"key": "ctrl+shift+k",
+		"command": "list.focusup",
+		"when": "panelfocus && activepanel == 'workbench.panel.markers' "
+	},
+	{
+		"key": "tab",
+		"command": "selectnextsuggestion",
+		"when": "editortextfocus && suggestwidgetmultiplesuggestions && suggestwidgetvisible"
+	},
+	{
+		"key": "shift+tab",
+		"command": "selectprevsuggestion",
+		"when": "editortextfocus && suggestwidgetmultiplesuggestions && suggestwidgetvisible"
+	},
+	{
+		"key": "shift+tab",
+		"command": "workbench.action.quickopennavigateprevious",
+		"when": "inquickopen"
+	},
+	// -----suggest item end------
+	{ // open selected explorer item 
+		"key": "enter",
+		"command": "list.select",
+		"when": "explorerviewletvisible && filesexplorerfocus"
+	},
+	{ // open reference localtion without quit reference view
+		"key": "o",
+		"command": "revealreference",
+		"when": "listfocus && referencesearchvisible && !inputfocus && !treeelementcancollapse && !treeelementcanexpand"
+	},
+	{ // preview reference
+		"key": "j",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"list.focusdown",
+				// "list.toggleexpand",	// todo: this will coallse the tree node
+			]
+		},
+		"when": "listfocus && !inputfocus && panelfocus && !indebugrepl && references-view.cannavigate"
+	},
+	{ // preview reference
+		"key": "k",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"list.focusup",
+				// "list.toggleexpand", // todo: this will coallse the tree node
+			]
+		},
+		"when": "listfocus && !inputfocus && panelfocus && !indebugrepl && references-view.cannavigate"
+	},
+	{ // open reference location with quit reference view
+		"key": "enter",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"revealreference",
+				"closereferencesearch"
+			]
+		},
+		"when": "listfocus && referencesearchvisible && !inputfocus && !treeelementcancollapse && !treeelementcanexpand"
+	},
+	{ // do not close debug view when press enter
+		"key": "enter",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"list.select",
+				// "workbench.action.togglepanel"
+			]
+		},
+		"when": "panelfocus && !indebugrepl && activepanel!='workbench.panel.markers' && reference-list.source == 'callhierarchy' "
+	},
+	{ // do not close debug view when press enter
+		"key": "enter",
+		"command": "extension.multicommand.execute",
+		"args": {
+			"sequence": [
+				"list.select",
+				"workbench.action.togglepanel"
+			]
+		},
+		"when": "panelfocus && !indebugrepl && activepanel!='workbench.panel.markers' && reference-list.source != 'callhierarchy' "
+	},
+	{ // select file to open
+		"key": "l",
+		"command": "list.select",
+		"when": "explorerviewletvisible && filesexplorerfocus && !inputfocus"
+	},
+	{ // toggle folder expand
+		"key": "o",
+		"command": "list.toggleexpand",
+		"when": "explorerviewletvisible && filesexplorerfocus && !inputfocus"
+	},
+	{ // collapse folder
+		"key": "h",
+		"command": "list.collapse",
+		"when": "explorerviewletvisible && filesexplorerfocus && !inputfocus"
+	},
+	{ // new file
+		"key": "a",
+		"command": "explorer.newfile",
+		"when": "filesexplorerfocus && !inputfocus"
+	},
+	{ // new folder
+		"key": "shift+a",
+		"command": "explorer.newfolder",
+		"when": "filesexplorerfocus && !inputfocus"
+	},
+	{ // delete file or folder
+		"key": "d",
+		"command": "deletefile",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourcereadonly && !inputfocus"
+	},
+	{ // toggle terminal
+		"key": "ctrl+\\",
+		"command": "workbench.action.terminal.toggleterminal",
+		"when": "terminal.active"
+	},
+	{ // maxmize terminal
+		"key": "ctrl+m",
+		"command": "workbench.action.togglemaximizedpanel",
+		"when": "terminalfocus"
+	},
+	{ // find & replace
+		"key": "ctrl+f",
+		"command": "editor.action.startfindreplaceaction",
+		"when": "editorfocus || editorisopen"
+	},
+	{ // disable built-in ctrl + r so thant undo in vim can execute
+		"key": "ctrl+r",
+		"command": "-editor.action.startfindreplaceaction",
+		"when": "editorfocus || editorisopen"
+	},
+	// { // quit side bar only when explore is focused
+	// 	"key": "q",
+	// 	"command": "workbench.action.togglesidebarvisibility",
+	// 	"when": "sidebarfocus && activeviewlet == 'workbench.view.explorer'"
+	// },
+	// fix ctrl d ctrl u in vim
+	// fix <c-d> and <c-u>
+	{
+		"key": "ctrl+d",
+		"command": "cursormove",
+		"args": {
+			"to": "down",
+			"by": "line",
+			"value": 34
+		},
+	},
+	{
+		"key": "ctrl+u",
+		"command": "cursormove",
+		"args": {
+			"to": "up",
+			"by": "line",
+			"value": 34
+		},
+	},
+	// -- disable a bunch of keybindings which may have conflicts with above keybindings
+	{
+		"key": "ctrl+p",
+		"command": "workbench.action.togglepanel"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "-editor.action.insertlineafter",
+		"when": "editortextfocus && neovim.ctrlkeysinsert && !neovim.recording && neovim.mode == 'insert'"
+	},
+	{
+		"key": "ctrl+k ctrl+i",
+		"command": "-editor.action.showhover",
+		"when": "editortextfocus"
+	},
+	{
+		"key": "shift+tab",
+		"command": "-acceptalternativeselectedsuggestion",
+		"when": "suggestwidgetvisible && textinputfocus && textinputfocus"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "-editor.action.startfindreplaceaction",
+		"when": "editorfocus || editorisopen"
+	},
+	{
+		"key": "ctrl+p",
+		"command": "-workbench.action.quickopen"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "-java.action.showtypehierarchy",
+		"when": "editortextfocus && editorlangid == 'java'"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "-extension.vim_ctrl+h",
+		"when": "editortextfocus && vim.active && vim.use<c-h> && !indebugrepl"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "-extension.dash.specific",
+		"when": "editortextfocus"
+	},
+	{
+		"key": "ctrl+e",
+		"command": "-workbench.action.quickopen"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "-expandlineselection",
+		"when": "textinputfocus"
+	},
+	{
+		"key": "alt+2",
+		"command": "-workbench.action.openeditoratindex2"
+	},
+	{
+		"key": "alt+2",
+		"command": "workbench.action.toggleauxiliarybar"
+	},
+	{
+		"key": "space",
+		"command": "-breadcrumbs.revealfocused",
+		"when": "breadcrumbsactive && breadcrumbsvisible"
+	},
+	{
+		"key": "space",
+		"command": "-debug.togglebreakpoint",
+		"when": "breakpointsfocused && !inputfocus"
+	},
+	{
+		"key": "space",
+		"command": "-filesexplorer.openfilepreservefocus",
+		"when": "explorerviewletvisible && filesexplorerfocus && !explorerresourceisfolder && !inputfocus"
+	},
+	{
+		"key": "space",
+		"command": "-list.toggleexpand",
+		"when": "listfocus && !inputfocus"
+	},
+	{
+		"key": "space",
+		"command": "-notification.toggle",
+		"when": "notificationfocus"
+	},
+	{
+		"key": "space",
+		"command": "-refactorpreview.togglecheckedstate",
+		"when": "listfocus && refactorpreview.enabled && !inputfocus"
+	},
+	{
+		"key": "tab",
+		"command": "extension.vim_tab",
+		"when": "editorfocus && vim.active && !indebugrepl && vim.mode != 'insert' && editorlangid != 'magit'"
+	},
+	{
+		"key": "tab",
+		"command": "-extension.vim_tab",
+		"when": "editorfocus && vim.active && !indebugrepl && vim.mode != 'insert'"
+	},
+	{
+		"key": "x",
+		"command": "magit.discard-at-point",
+		"when": "editortextfocus && editorlangid == 'magit' && vim.mode =~ /^(?!searchinprogressmode|commandlineinprogress).*$/"
+	},
+	{
+		"key": "k",
+		"command": "-magit.discard-at-point"
+	},
+	{
+		"key": "-",
+		"command": "magit.reverse-at-point",
+		"when": "editortextfocus && editorlangid == 'magit' && vim.mode =~ /^(?!searchinprogressmode|commandlineinprogress).*$/"
+	},
+	{
+		"key": "v",
+		"command": "-magit.reverse-at-point"
+	},
+	{
+		"key": "shift+-",
+		"command": "magit.reverting",
+		"when": "editortextfocus && editorlangid == 'magit' && vim.mode =~ /^(?!searchinprogressmode|commandlineinprogress).*$/"
+	},
+	{
+		"key": "shift+v",
+		"command": "-magit.reverting"
+	},
+	{
+		"key": "shift+o",
+		"command": "magit.resetting",
+		"when": "editortextfocus && editorlangid == 'magit' && vim.mode =~ /^(?!searchinprogressmode|commandlineinprogress).*$/"
+	},
+	{
+		"key": "shift+x",
+		"command": "-magit.resetting"
+	},
+	{
+		"key": "x",
+		"command": "-magit.reset-mixed"
+	},
+	{
+		"key": "ctrl+u x",
+		"command": "-magit.reset-hard"
+	},
+	{
+		"key": "y",
+		"command": "-magit.show-refs"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.quickopenselectnext",
+		"when": "inquickopen"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.quickopenselectprevious",
+		"when": "inquickopen"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "selectnextsuggestion",
+		"when": "suggestwidgetmultiplesuggestions && suggestwidgetvisible && textinputfocus"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "selectprevsuggestion",
+		"when": "suggestwidgetmultiplesuggestions && suggestwidgetvisible && textinputfocus"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "acceptselectedsuggestion",
+		"when": "suggestwidgetmultiplesuggestions && suggestwidgetvisible && textinputfocus"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "shownextparameterhint",
+		"when": "editorfocus && parameterhintsmultiplesignatures && parameterhintsvisible"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "showprevparameterhint",
+		"when": "editorfocus && parameterhintsmultiplesignatures && parameterhintsvisible"
+	},
+	{
+		"key": "ctrl+h",
+		"command": "file-browser.stepout",
+		"when": "infilebrowser"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "file-browser.stepin",
+		"when": "infilebrowser"
+	},
+	{
+		"key": "f6",
+		"command": "workbench.action.debug.stepover",
+		"when": "debugstate == 'stopped'"
+	},
+	{
+		"key": "f8",
+		"command": "-workbench.action.debug.stepover",
+		"when": "debugstate == 'stopped'"
+	},
+	{
+		"key": "f8",
+		"command": "workbench.action.debug.stepout",
+		"when": "debugstate == 'stopped'"
+	},
+	{
+		"key": "f6",
+		"command": "-workbench.action.debug.pause",
+		"when": "debugstate == 'running'"
+	},
+	{
+		"key": "f4",
+		"command": "workbench.action.debug.stop",
+		"when": "indebugmode && !focusedsessionisattach"
+	},
+	{
+		"key": "ctrl+oem_plus",
+		"command": "-workbench.action.zoomin"
+	},
+	{
+		"key": "ctrl+shift+oem_plus",
+		"command": "-workbench.action.zoomin"
+	},
+	{
+		"key": "enter",
+		"command": "-revealreference",
+		"when": "listfocus && referencesearchvisible && !inputfocus && !treeelementcancollapse && !treeelementcanexpand"
+	},
+	{
+		"key": "space",
+		"command": "whichkey.show",
+		"when": "!inputfocus"
+	},
+	{
+		"key": "alt+backspace",
+		"command": "git.stagechange"
+	},
+	{
+		"key": "ctrl+n",
+		"command": "editor.action.triggerparameterhints",
+		"when": "editorhassignaturehelpprovider && editortextfocus"
+	},
+	{
+		"key": "ctrl+m",
+		"command": "-editor.action.toggletabfocusmode"
+	},
+	{
+		"key": "tab",
+		"command": "-insertbestcompletion",
+		"when": "atendofword && textinputfocus && !hasothersuggestions && !insnippetmode && !suggestwidgetvisible && config.editor.tabcompletion == 'on'"
+	},
+	{
+		"key": "tab",
+		"command": "-insertnextsuggestion",
+		"when": "hasothersuggestions && textinputfocus && !insnippetmode && !suggestwidgetvisible && config.editor.tabcompletion == 'on'"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "-deleteright",
+		"when": "textinputfocus"
+	},
+	{
+		"key": "ctrl+d",
+		"command": "-workbench.action.debug.run",
+		"when": "debuggersavailable && !indebugmode && !terminalfocus"
+	},
+	{
+		"key": "alt+o",
+		"command": "-c_cpp.switchheadersource",
+		"when": "editortextfocus && editorlangid == 'c' || editortextfocus && editorlangid == 'cpp' || editortextfocus && editorlangid == 'cuda-cpp'"
+	},
+	{
+		"key": "alt+o",
+		"command": "clangd.switchheadersource",
+		"when": "editortextfocus"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "-editor.action.codeaction",
+		"when": "editortextfocus"
+	},
+	{
+		"key": "ctrl+o",
+		"command": "-editor.action.codeaction",
+		"when": "editortextfocus"
+	},
+	{
+		"key": "ctrl+o",
+		"command": "-linebreakinsert",
+		"when": "textinputfocus && !editorreadonly"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "extension.vim_ctrl+i",
+		"when": "editortextfocus && vim.active && vim.use<c-i> && !indebugrepl"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "-extension.vim_ctrl+i",
+		"when": "editortextfocus && vim.active && vim.use<c-i> && !indebugrepl"
+	},
+	{
+		"key": "ctrl+o",
+		"command": "workbench.action.navigateback",
+		"when": "cannavigateback"
+	},
+	{
+		"key": "ctrl+i",
+		"command": "workbench.action.navigateforward",
+		"when": "cannavigateforward"
+	},
+	{
+		"key": "cmd+p",
+		"command": "workbench.action.showcommands"
+	},
+	{
+		"key": "shift+cmd+a",
+		"command": "-workbench.action.showcommands"
+	},
+	{
+		"key": "cmd+r",
+		"command": "-workbench.action.reloadwindow",
+		"when": "isdevelopment"
+	},
+	{
+		"key": "cmd+r",
+		"command": "-jupyter.refreshdataviewer",
+		"when": "isworkspacetrusted && jupyter.datavieweractive"
+	},
+	{
+		"key": "cmd+r",
+		"command": "-python.refreshtensorboard",
+		"when": "python.hasactivetensorboardsession"
+	},
+	{
+		"key": "cmd+r",
+		"command": "-editor.action.startfindreplaceaction",
+		"when": "editorfocus || editorisopen"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.openrecent"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-go.test.previous",
+		"when": "editorlangid == 'go'"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.tasks.reruntask"
+	},
+	{
+		"key": "ctrl+r",
+		"command": "-workbench.action.quickopennavigatenextinrecentfilespicker",
+		"when": "inquickopen && inrecentfilespicker"
+	},
+	{
+		"key": "cmd+r",
+		"command": "editor.action.startfindreplaceaction",
+		"when": "editorfocus || editorisopen"
+	},
+	{
+		"key": "ctrl+u",
+		"command": "-extension.vim_ctrl+u",
+		"when": "editortextfocus && vim.active && vim.use<c-u> && !indebugrepl"
+	},
+	{
+		"key": "ctrl+up",
+		"command": "-extension.vim_ctrl+up",
+		"when": "editortextfocus && vim.active && !indebugrepl && vim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+u",
+		"command": "-list.focuspageup",
+		"when": "listfocus && !inputfocus"
+	}
+]
