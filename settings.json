@@ -14,25 +14,16 @@
         "<C-f>": false,
         "<C-c>": false,
         "<C-v>": false,
-        "<C-i>": true,
-        "<C-o>": true,
-        "<C-r>": true,
         "<C-s>": false,
-        "<C-w>": true,
-        "<C-u>": false,
-        "<C-d>": false,
+        // "<C-w>": true,
     },
     "vim.hlsearch": true,
     "vim.incsearch": true,
-    "vim.leader": ";",
+    "vim.leader": ",", 
     "vim.normalModeKeyBindings": [
         { // which key
-            "before": [
-                "<space>"
-            ],
-            "commands": [
-                "whichkey.show"
-            ]
+            "before": ["<space>"],
+            "commands": ["whichkey.show"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -44,36 +35,24 @@
             "before": ["R",],
             "after": ["g","t"]
         },
-        {
-            "before": ["<leader>","f"],
-            "commands": ["editor.action.formatDocument"]
-        },
-        {
+        // {
+        //     "before": ["<leader>","f"],
+        //     "commands": ["editor.action.formatDocument"]
+        // },
+        { //Exit all tabs
             "before": ["<leader>","g","q",],
             "commands": [
                 "workbench.action.closeEditorsInGroup"
             ]
         },
-        {
-            "before": ["<leader>","u"],
-            "commands": ["editor.action.referenceSearch.trigger"]
-        },
-        {
-            "before": ["<leader>","U"],
-            "commands": ["references-view.findReferences"]
-        },
-        {
-            "before": ["<leader>","i","n"],
-            "commands": ["references-view.showCallHierarchy"]
-        },
         // -- run
-        {
+        { // ^F5 run
             "before": ["<leader>","r"],
             "commands": [
                 "workbench.action.files.save",
                 "workbench.action.debug.run"]
         },
-        {
+        { // F5 start Debug
             "before": ["<leader>","d","r"],
             "commands": [
                 "workbench.action.files.save",
@@ -85,19 +64,9 @@
             "before": ["<leader>","d","b"],
             "commands": ["editor.debug.action.toggleBreakpoint"]
         },
-        {
+        { // 条件断点
             "before": ["<leader>","d","c"],
             "commands": ["editor.debug.action.conditionalBreakpoint"]
-        },
-        // -- problem nav
-        // fix <C-d> and <C-u>
-        {
-            "before": ["<leader>","d","k"],
-            "commands": ["editor.action.marker.prev"]
-        },
-        {
-            "before": ["<leader>","d","j"],
-            "commands": ["editor.action.marker.next"]
         },
         // -- git hunk nav
         {
@@ -132,16 +101,6 @@
             "before": ["<leader>","r","n"],
             "commands": ["editor.action.rename",]
         },
-        // search
-        {
-            "before": ["<leader>","f","w"],
-            "commands": ["extension.searchUnderCursor",]
-        },
-        // gg and G jump mark
-        {
-            "before": ["g","g",],
-            "after": ["m","a","g","g",]
-        },
     ],
     "vim.visualModeKeyBindings": [
         { // which key
@@ -159,10 +118,10 @@
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<leader>","f"],
-            "commands": ["editor.action.formatSelection"]
-        },
+        // { // 格式化，用不上
+        //     "before": ["<leader>","f"],
+        //     "commands": ["editor.action.formatSelection"]
+        // },
         { // p action will not override clipboard content
             "before": ["p"],
             "after": ["p","g","v","y",]
@@ -171,7 +130,7 @@
     /* ---------- vim settings end ----------*/
     /* ---------- which key bindings ----------*/
     "whichkey.bindings": [
-        {
+        { // 打开文件管理目录
             "key": "e",
             "name": "Show tree/explorer view",
             "type": "conditional",
@@ -190,19 +149,7 @@
                 }
             ],
         },
-        {
-            "key": "o",
-            "name": "Outline",
-            "type": "command",
-            "command": "workbench.action.toggleAuxiliaryBar"
-        },
-        {
-            "key": "h",
-            "name": "bookmark",
-            "type": "command",
-            "command": "lineHighlightBookmark.toogleBookmarks"
-        },
-        {
+        { // 打开侧边栏 源代码管理
             "key": "g",
             "name": "Source contrl",
             "type": "command",
@@ -214,19 +161,13 @@
             "name": "Find file",
             "type": "command"
         },
-        {
+        { // 侧边栏 ctrl + shift + f
             "command": "workbench.view.search",
             "key": "F",
             "name": "Search Word",
             "type": "command"
         },
-        {
-            "command": "search.action.openEditor",
-            "key": "w",
-            "name": "New Search Editor",
-            "type": "command"
-        },
-        {
+        { // 类似快速跳转 symbol
             "command": "workbench.action.gotoSymbol",
             "key": "s",
             "name": "Search document symbol",
@@ -239,9 +180,6 @@
             "type": "command"
         },
     ],
-
-    // ---------- Default Vscode Settings ----------
-    "window.zoomLevel": 1,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -257,7 +195,6 @@
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "debug.console.fontSize": 12,
 
     "files.autoGuessEncoding": true,
     "files.autoSave": "onFocusChange",
@@ -274,9 +211,8 @@
     },
 
     /* ---------- workbench Beautify ----------*/
-    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.list.automaticKeyboardNavigation": false,
     "workbench.panel.defaultLocation": "bottom",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.layoutControl.enabled": false,
@@ -284,33 +220,9 @@
         "*.ipynb": "jupyter-notebook"
     },
 
-    // ----------Vscode Default Settings ----------
-    "diffEditor.maxComputationTime": 0,
-    "diffEditor.wordWrap": "off",
-    "diffEditor.ignoreTrimWhitespace": false,
-
-    "security.workspace.trust.untrustedFiles": "open",
-
-    "update.mode": "none",
-    "markdown.editor.drop.enabled": false,
-    "window.newWindowDimensions": "offset",
-    "tabnine.experimentalAutoImports": true,
-    "audioCues.noInlayHints": "off",
-    "extensions.autoUpdate": false,
-    "extensions.supportUntrustedWorkspaces": {
-        "byted-ide.dev-environment-manager": {
-            "supported": true
-        }
-    },
-    "scss.lint.duplicateProperties": "warning",
-    "settingsSync.ignoredSettings": [
-        "editor.fontFamily"
-    ],
-
-
     // ---------- python Default Settings ----------
-    "python.analysis.inlayHints.functionReturnTypes": true,
-    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.functionReturnTypes": false,
+    "python.analysis.inlayHints.variableTypes": false,
     "python.languageServer": "Default",
     "python.terminal.activateEnvironment": false,
     "python.formatting.provider": "yapf",
@@ -330,12 +242,12 @@
     "doxdocgen.generic.authorName": "Luoyuhao",
 
     // ---------- Terminal Settings ----------
-    // "terminal.external.linuxExec": "zsh",
-    // "terminal.integrated.defaultProfile.osx": "zsh",
-    // "terminal.integrated.defaultProfile.linux": "zsh",
-    // "terminal.external.osxExec": "iTerm.app",
+    "terminal.external.linuxExec": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.external.osxExec": "iTerm2.app",
     "terminal.integrated.cwd": "",
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.scrollback": 100000,
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.gpuAcceleration": "off",
@@ -345,13 +257,12 @@
     "editor.cursorSurroundingLines": 8,
     "editor.cursorBlinking": "solid",
     "editor.cursorStyle": "line",
-    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.fontSize": 14,
     "editor.formatOnSaveMode": "modifications",
     "editor.inlineSuggest.enabled": true,
     "editor.insertSpaces": false,
     "editor.largeFileOptimizations": false,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative", // relative 行号
     "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": false,
     "editor.renderWhitespace": "boundary",
@@ -377,7 +288,8 @@
     "remote.SSH.useLocalServer": false,
     "remote.SSH.remotePlatform": {
         "titan": "linux",
-        "rtx2080": "linux"
+        "rtx2080": "linux",
+        "rtx2080-Port2": "linux"
     },
     "remote.SSH.defaultExtensions": [
         "byted-ide.gallery"
@@ -398,5 +310,32 @@
     "git.confirmSync": false,
     "gitlens.views.commitDetails.files.layout": "tree",
     "git.openRepositoryInParentFolders": "never",
+    
+    // ----------Vscode Default Settings ----------
+    "diffEditor.maxComputationTime": 0,
+    "diffEditor.wordWrap": "off",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "debug.console.fontSize": 14,
 
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "update.mode": "none",
+    "markdown.editor.drop.enabled": false,
+    "window.newWindowDimensions": "offset",
+    "tabnine.experimentalAutoImports": true,
+    "window.zoomLevel": 1,
+    "audioCues.noInlayHints": "off",
+    "extensions.autoUpdate": false,
+    "extensions.supportUntrustedWorkspaces": {
+        "byted-ide.dev-environment-manager": {
+            "supported": true
+        }
+    },
+    "scss.lint.duplicateProperties": "warning",
+    "settingsSync.ignoredExtensions": [
+    
+    ],
+    "settingsSync.ignoredSettings": [
+        // "editor.fontFamily"
+    ],
 }
