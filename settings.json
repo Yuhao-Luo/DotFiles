@@ -221,6 +221,7 @@
     },
 
     // ---------- python Default Settings ----------
+    // Display the types of current function & variable 
     "python.analysis.inlayHints.functionReturnTypes": false,
     "python.analysis.inlayHints.variableTypes": false,
     "python.languageServer": "Default",
@@ -242,10 +243,10 @@
     "doxdocgen.generic.authorName": "Luoyuhao",
 
     // ---------- Terminal Settings ----------
-    "terminal.external.linuxExec": "zsh",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "terminal.external.osxExec": "iTerm2.app",
+    // "terminal.external.linuxExec": "zsh",
+    // "terminal.integrated.defaultProfile.osx": "zsh",
+    // "terminal.integrated.defaultProfile.linux": "zsh",
+    // "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.cwd": "",
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.scrollback": 100000,
@@ -256,7 +257,8 @@
     "editor.smoothScrolling": false,
     "editor.cursorSurroundingLines": 8,
     "editor.cursorBlinking": "solid",
-    "editor.cursorStyle": "line",
+	"editor.cursorStyle": "line",
+	// "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.fontSize": 14,
     "editor.formatOnSaveMode": "modifications",
     "editor.inlineSuggest.enabled": true,
@@ -288,8 +290,7 @@
     "remote.SSH.useLocalServer": false,
     "remote.SSH.remotePlatform": {
         "titan": "linux",
-        "rtx2080": "linux",
-        "rtx2080-Port2": "linux"
+        "rtx2080": "linux"
     },
     "remote.SSH.defaultExtensions": [
         "byted-ide.gallery"
@@ -312,6 +313,8 @@
     "git.openRepositoryInParentFolders": "never",
     
     // ----------Vscode Default Settings ----------
+    "window.zoomLevel": 1,
+    "window.newWindowDimensions": "offset",
     "diffEditor.maxComputationTime": 0,
     "diffEditor.wordWrap": "off",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -321,9 +324,7 @@
 
     "update.mode": "none",
     "markdown.editor.drop.enabled": false,
-    "window.newWindowDimensions": "offset",
     "tabnine.experimentalAutoImports": true,
-    "window.zoomLevel": 1,
     "audioCues.noInlayHints": "off",
     "extensions.autoUpdate": false,
     "extensions.supportUntrustedWorkspaces": {
