@@ -1,51 +1,80 @@
-// 将键绑定放在此文件中以覆盖默认值
+// 将键绑定放在此文件中以覆盖默认值auto[]
 [
-	{ // make cursor back to editor
-		"key": "ctrl+k",
-		"command": "workbench.action.focusActiveEditorGroup",
-		"when": "panelFocus && activePanel"
+	// -------------------------
+	// 资源管理器中对文件或目录的操作
+	// -------------------------
+	// 新建文件
+	{
+		"key": "a",
+		"command": "explorer.newFile",
+		"when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
 	},
-	{ // make cursor back to editor
-		"key": "ctrl+h",
-		"command": "workbench.action.focusActiveEditorGroup",
-		"when": "panelFocus && activePanel"
-	},
-	{ // window move down
-		"key": "ctrl+j",
-		"command": "vim.remap",
-		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
-		"args": {"after": ["<c-w>","j"],}
-	},
-	{ // window move up
-		"key": "ctrl+k",
-		"command": "vim.remap",
-		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
-		"args": {"after": ["<c-w>", "k"],}
-	},
-	{ // window move left
-		"key": "ctrl+h",
-		"command": "vim.remap",
-		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
-		"args": {"after": ["<c-w>","h"],}
-	},
-	{ // window move right
-		"key": "ctrl+l",
-		"command": "vim.remap",
-		"when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
-		"args": {"after": ["<c-w>","l"],}
-	},
-	// -----searching pane start------
+	// 新建目录
 	{
 		"key": "o",
-		"command": "list.select",
-		"when": "listFocus && !inputFocus && hasSearchResult && searchViewletFocus"
+		"command": "explorer.newFolder",
+		"when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
 	},
+	// 刷新资源管理器
+	// {
+	// 	"key": "a",
+	// 	"command": "workbench.files.action.refreshFilesExplorer",
+	// 	"when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+	// },
+	// 重命名文件或目录
 	{
-		"key": "enter",
-		"command": "extension.multiCommand.execute",
-		"args": {"sequence": ["list.select", "workbench.action.toggleAuxiliaryBar",]},
-		"when": "listFocus && !inputFocus && hasSearchResult && searchViewletFocus"
+		"key": "r",
+		"command": "renameFile",
+		"when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
 	},
-	// -----searching pane end------
-	// -----suggest item start------
+	// 删除文件或目录
+	{
+		"key": "d",
+		"command": "deleteFile",
+		"when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+	},
+	// 剪切文件或目录
+	{
+		"key": "x",
+		"command": "filesExplorer.cut",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+	},
+	// 复制文件或目录
+	{
+		"key": "y",
+		"command": "filesExplorer.copy",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+	},
+	// 粘贴文件或目录
+	{
+		"key": "p",
+		"command": "filesExplorer.paste",
+		"when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+	},
+
+	// -------------------------
+	// 常规定义
+	// -------------------------
+	// ctrl+d 打开定义
+	// { "key": "ctrl+d", "command": "editor.action.peekDefinition" },
+	// {
+	//   "key": "ctrl+d",
+	//   "command": "editor.closeTestPeek",
+	//   "when": "testing.isInPeek && !config.editor.stablePeek || testing.isPeekVisible && !config.editor.stablePeek"
+	// },
+	// ctrl+n 字符重命名
+	{ "key": "ctrl+n", "command": "editor.action.rename" },
+	// ctrl+z 来回跳转终端
+	{ "key": "ctrl+z", "command": "workbench.action.terminal.focus" },
+	{
+	  "key": "ctrl+z",
+	  "command": "workbench.action.focusActiveEditorGroup",
+	  "when": "terminalFocus"
+	},
+	// 放大当前编辑器组
+	{ "key": "ctrl+m", "command": "workbench.action.toggleEditorWidths" },
+	{ "key": "ctrl+\\", "command": "workbench.action.splitEditor" },
+	{ "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
+	{ "key": "ctrl+l", "command": "workbench.action.navigateRight" },
+	// { "key": "ctrl+w", "command": "workbench.action.closeEditorsAndGroup" }
 ]
