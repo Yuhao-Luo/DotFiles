@@ -1,8 +1,5 @@
 " 设置前导键
-let mapleader=";"
-
-" 暂时取消搜索高亮快捷键
-nnoremap <silent> <Leader>l :<C-u>nohlsearch<CR><C-l>
+let mapleader=","
 
 " 定义快捷键到行首和行尾
 map H ^
@@ -18,6 +15,11 @@ nmap <Leader>q :q<CR>
 " 定义快捷键保存当前窗口内容
 nmap <Leader>w :w<CR>
 
+" 暂时取消搜索高亮快捷键
+nnoremap <silent> <Leader>l :<C-u>nohlsearch<CR><C-l>
+" 快速跳转tab
+nnoremap E gT
+nnoremap R gt
 " Focus center or current cursor position after \"J\"
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -27,3 +29,6 @@ nnoremap J mzJ`z
 
 " map esc to jk in insert mode
 inoremap jk <ESC>
+
+"p action will not override clipboard content
+vnoremap p pgvy
