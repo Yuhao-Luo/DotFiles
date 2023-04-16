@@ -1,23 +1,28 @@
 {
     /* ---------- vim settings start ----------*/
     // VIM default settings
-    "vim.camelCaseMotion.enable": true,
+    // 启用 Vim 自带插件
+    "vim.camelCaseMotion.enable": true, // 驼峰命名法，但还没绑定
     "vim.easymotion": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
-    "vim.sneak": false,
     "vim.surround": true,
-    "vim.useCtrlKeys": true,
+    // 启用系统粘贴板作为vim寄存器
     "vim.useSystemClipboard": true,
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vsvimrc",
+    // 由vim接管ctrl+any的按键，而不是vscode
+    "vim.useCtrlKeys": true,
+    // 下面定义的按键将交由vscode进行处理，而不是vscode-vim插件
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false,
         "<C-c>": false,
         "<C-v>": false,
         "<C-s>": false,
+        "<C-x>": false,
         // "<C-w>": true,
     },
+    // 突出显示与当前搜索匹配的所有文本
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.leader": ",", 
@@ -45,21 +50,12 @@
       "replace": "#000000"
     },
     "workbench.colorCustomizations": {
-        "statusBar.background": "#5f0000",
-        "statusBar.noFolderBackground": "#5f0000",
-        "statusBar.debuggingBackground": "#5f0000"
+        "statusBar.background": "#005f87",
+        "statusBar.noFolderBackground": "#005f87",
+        "statusBar.debuggingBackground": "#005f87"
     },
     // VIM key bindings
     "vim.normalModeKeyBindingsNonRecursive": [
-
-        {
-            "before": ["E",],
-            "after": ["g","T",]
-        },
-        {
-            "before": ["R",],
-            "after": ["g","t"]
-        },
         // {
         //     "before": ["<leader>","f"],
         //     "commands": ["editor.action.formatDocument"]
@@ -93,21 +89,21 @@
             "before": ["<leader>","d","c"],
             "commands": ["editor.debug.action.conditionalBreakpoint"]
         },
-        // -- git hunk nav
-        {
-            "before": ["<leader>","k"],
-            "commands": [
-                "workbench.action.editor.previousChange",
-                "editor.action.dirtydiff.previous"
-            ]
-        },
-        {
-            "before": ["<leader>","j"],
-            "commands": [
-                "workbench.action.editor.nextChange",
-                "editor.action.dirtydiff.next"
-            ]
-        },
+        // // -- git hunk nav
+        // {
+        //     "before": ["<leader>","k"],
+        //     "commands": [
+        //         "workbench.action.editor.previousChange",
+        //         "editor.action.dirtydiff.previous"
+        //     ]
+        // },
+        // {
+        //     "before": ["<leader>","j"],
+        //     "commands": [
+        //         "workbench.action.editor.nextChange",
+        //         "editor.action.dirtydiff.next"
+        //     ]
+        // },
         // git (un)stage 
         {
             "before": ["<leader>","h","s"],
@@ -132,25 +128,12 @@
             "before": ["<space>"],
             "commands": ["whichkey.show"]
         },
-        // repeatly indent in visual mode
-        {
-            "before": [">"],
-            "commands": ["editor.action.indentLines"]
-        },
-        {
-            "before": ["<"],
-            "commands": ["editor.action.outdentLines"]
-        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         // { // 格式化，用不上
         //     "before": ["<leader>","f"],
         //     "commands": ["editor.action.formatSelection"]
         // },
-        { // p action will not override clipboard content
-            "before": ["p"],
-            "after": ["p","g","v","y",]
-        },
     ],
     /* ---------- which key bindings ----------*/
     "whichkey.bindings": [
