@@ -4,7 +4,8 @@
     // 启用 Vim 自带插件
     "vim.camelCaseMotion.enable": true, // 驼峰命名法，但还没绑定
     "vim.easymotion": true,
-    "vim.foldfix": true, // to avoid fold open up autocamatically
+    "vim.foldfix": false, // to avoid fold open up autocamatically
+    "vim.sneak": false,
     "vim.surround": true,
     // 启用系统粘贴板作为vim寄存器
     "vim.useSystemClipboard": true,
@@ -18,9 +19,8 @@
         "<C-f>": false,
         "<C-c>": false,
         "<C-v>": false,
-        "<C-s>": false,
         "<C-x>": false,
-        // "<C-w>": true,
+        "<C-z>": false,
     },
     // 突出显示与当前搜索匹配的所有文本
     "vim.hlsearch": true,
@@ -128,13 +128,27 @@
             "before": ["<space>"],
             "commands": ["whichkey.show"]
         },
+        // repeatly indent in visual mode
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         // { // 格式化，用不上
         //     "before": ["<leader>","f"],
         //     "commands": ["editor.action.formatSelection"]
         // },
+        { // p action will not override clipboard content
+            "before": ["p"],
+            "after": ["p","g","v","y",]
+        },
     ],
+    /* ---------- vim settings end ----------*/
     /* ---------- which key bindings ----------*/
     "whichkey.bindings": [
         { // 打开文件管理目录
@@ -272,7 +286,7 @@
     "editor.insertSpaces": false,
     "editor.largeFileOptimizations": false,
     "editor.lineNumbers": "relative", // relative 行号
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.mouseWheelZoom": false,
     "editor.renderWhitespace": "boundary",
     "editor.snippetSuggestions": "bottom",
@@ -346,4 +360,7 @@
     "settingsSync.ignoredSettings": [
         // "editor.fontFamily"
     ],
+    "genieai.personalizedName": "Jarvis",
+    "terminal.integrated.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
 }
