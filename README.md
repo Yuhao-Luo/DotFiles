@@ -1,3 +1,10 @@
+# PicGo
+私人图床配置
+
+Reference:
+
+https://zhuanlan.zhihu.com/p/347342082
+
 # vscodevim
 vim for Vscode
  
